@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Color Palette Generator</title>
-    <style>
-      #palette {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        max-width: 1300px;
-      }
-      .color-box {
-        width: 100px;
-        height: 100px;
-        margin: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        background-color: rgba(145, 145, 145, 0.185);
-        text-shadow: 1px 1px 2px black;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Knewave&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <title>Document</title>
   </head>
   <body>
-    <h1>COLOUR PALETTE GENERATOR</h1>
+    <header>
+      <span>Color-Pal</span>
+      <a href="https://github.com/gbubemi05"
+        ><i class="bi bi-github icon"></i
+      ></a>
+    </header>
+
     <div id="palette">
       <div class="color-box"></div>
       <div class="color-box"></div>
@@ -31,80 +31,11 @@
       <div class="color-box"></div>
       <div class="color-box"></div>
     </div>
-    <button onclick="generatePalette(5)" class="palette-btn">
-      Generate Palette
-    </button>
-
-    <script>
-      const btn = document.querySelector(".palette-btn");
-      const colorBoxes = document.querySelectorAll(".color-box");
-      function getRandomRGB() {
-        const red = Math.floor(Math.random() * 256);
-        const green = Math.floor(Math.random() * 256);
-        const blue = Math.floor(Math.random() * 256);
-        return `rgb(${red}, ${green}, ${blue})`;
-      }
-      console.log(getRandomRGB);
-      function rgbToHex(r, g, b) {
-        return (
-          "#" +
-          [r, g, b]
-            .map((x) => {
-              const hex = x.toString(16);
-              return hex.length === 1 ? "0" + hex : hex;
-            })
-            .join("")
-        );
-      }
-      console.log(rgbToHex);
-      function getRandomHex() {
-        const red = Math.floor(Math.random() * 256);
-        const green = Math.floor(Math.random() * 256);
-        const blue = Math.floor(Math.random() * 256);
-        return rgbToHex(red, green, blue);
-      }
-
-      btn.addEventListener("click", function () {
-        // Select all divs with class "color-box"
-
-        colorBoxes.forEach((div) => {
-          const hexColor = getRandomHex();
-          div.style.backgroundColor = hexColor;
-          div.textContent = hexColor; // Add the hex code as text
-        });
-      });
-      // function generatePalette(numColors) {
-      //   const palette = [];
-      //   const paletteContainer = document.getElementById("palette");
-      //   paletteContainer.innerHTML = "";
-
-      //   for (let i = 0; i < numColors; i++) {
-      //     const hexColor = getRandomHex();
-      //     palette.push(hexColor);
-
-      //     const colorDiv = document.createElement("div");
-      //     colorDiv.style.backgroundColor = hexColor;
-      //     colorDiv.classList.add("color-box");
-      //     colorDiv.textContent = hexColor;
-      //     paletteContainer.appendChild(colorDiv);
-      //   }
-      //   paletteContainer.addEventListener("click", (event) => {
-      //     if (event.target.classList.contains("color-box")) {
-      //       copyToClipboard(event.target.textContent);
-      //     }
-      //   });
-      //   return palette;
-      // }
-      function copyToClipboard(text) {
-        navigator.clipboard
-          .writeText(text)
-          .then(() => {
-            console.log("Text copied to clipboard");
-          })
-          .catch((err) => {
-            console.error("Could not copy text: ", err);
-          });
-      }
-    </script>
+    <button class="palette-btn">Generate Palette</button>
+    <hr />
+    <footer>
+      <p>2025 allrights reserved gbubemi05</p>
+    </footer>
+    <script src="script.js"></script>
   </body>
 </html>
