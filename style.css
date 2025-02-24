@@ -5,7 +5,7 @@
 }
 body {
   background-color: #dae5ec;
-  font-family: "Ga Maamli", serif;
+  font-family: sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -30,8 +30,9 @@ header {
 span {
   font-size: 3.2rem;
   color: #156de8;
+  font-family: "Ga Maamli", serif;
 }
-#palette {
+.palette {
   display: flex;
   /* flex-wrap: wrap; */
   /* margin: 0 auto; */
@@ -66,10 +67,26 @@ span {
   margin-bottom: 5rem;
   justify-self: center;
 }
-
+.pop-up {
+  position: absolute;
+  background-color: #333;
+  font-size: 2.5rem;
+  padding: 1.2rem 3.2rem;
+  border-radius: 1.2rem;
+  color: #fff;
+}
 footer p {
   color: #333;
   font-size: 2rem;
   font-weight: 500;
   text-align: center;
+}
+@media (max-width: 59em) {
+  #palette {
+    flex-direction: column;
+  }
+  .color-box {
+    height: 20vh;
+    width: 100vw;
+  }
 }

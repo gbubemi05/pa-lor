@@ -1,5 +1,13 @@
 const btn = document.querySelector(".palette-btn");
-const colorBoxes = document.querySelectorAll(".color-box");
+
+const btnPositive = document.querySelector(".positive-btn");
+const btnNegative = document.querySelector(".negative-btn");
+const paletteDiv = document.querySelector(".palette");
+
+btnPositive.addEventListener("click", function () {
+  const html = `<div class="color-box"></div>`;
+  paletteDiv.insertAdjacentHTML("beforeend", html);
+});
 function getRandomRGB() {
   const red = Math.floor(Math.random() * 256);
   const green = Math.floor(Math.random() * 256);
@@ -28,7 +36,7 @@ function getRandomHex() {
 
 btn.addEventListener("click", function () {
   // Select all divs with class "color-box"
-
+  const colorBoxes = document.querySelectorAll(".color-box");
   colorBoxes.forEach((div) => {
     const hexColor = getRandomHex();
     div.style.backgroundColor = hexColor;
